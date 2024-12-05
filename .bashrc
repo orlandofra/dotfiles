@@ -1,3 +1,18 @@
+start_tmux(){
+	## avoid tmux if in ssh connection
+	[ -z "$SSH_CONNECTION" ] && return
+
+	## avoid nested tmux
+	if [[ -z "$TMUX" ]] ; then
+		ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )"
+		if [[ -z "$ID" ]] ; then
+			tmux new-session
+		else
+			tmux attach-session -t "$ID"
+		fi
+	fi
+}
+
 # Ubuntu default config
 case $- in
     *i*) ;;
@@ -95,18 +110,11 @@ set -o vi
 bind -m vi-command 'Control-l: clear-screen'
 bind -m vi-insert 'Control-l: clear-screen'
 
-## avoid nested tmux
-if [[ -z "$TMUX" ]] ; then
-	ID="$( tmux ls | grep -vm1 attached | cut -d: -f1 )"
-	if [[ -z "$ID" ]] ; then
-		tmux new-session
-	else
-		tmux attach-session -t "$ID"
-	fi
-fi
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 PATH+=":$HOME/Scripts"
+start_tmux
+
+
