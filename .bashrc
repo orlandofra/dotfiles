@@ -118,5 +118,4 @@ export NVM_DIR="$HOME/.nvm"
 
 PATH+=":$HOME/Scripts"
 start_tmux
-
-
+unset -f start_tmux
