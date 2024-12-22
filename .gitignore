@@ -1,0 +1,11 @@
+*.swp
+*.swo
+
+*.bak
+
+__pycache__/
+*.pyc
+*.pyo
+
+*.out
+*.o

@@ -1,4 +1,5 @@
 #!/bin/bash
+### svergina la macchina ###
 
 cleanup() {
 	[ -d "$TEMP_DIR" ] && rm -rf "$TEMP_DIR"
@@ -30,6 +31,7 @@ DOTFILES=(
 	".bash_aliases"
 	".bash_funcs"
 	".bashrc"
+	".gitignore"
 	".profile"
 	".tmux.conf"
 	".vimrc"
@@ -94,5 +96,7 @@ rm -rf $TEMP_DIR
 echo -e "\033[0;32m" # green
 echo i dotfiles sono stati installati sei pronto ad utilizzare questa macchina da vero terrorista
 echo -e "\033[0m" # reset
+
+[ -f ~/.gitignore ] && git config --global core.excludesfile ~/.gitignore
 
 confirm "installare pachetti di uso comune?" && install_packages
