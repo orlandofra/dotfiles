@@ -1,6 +1,6 @@
 start_tmux(){
 	## avoid tmux if in ssh connection
-	[ -z "$SSH_CONNECTION" ] && return
+	[ ! -z "$SSH_CONNECTION" ] && return
 	## avoid tmux if root
 	[ "$UID" -eq 0 ] && return
 
