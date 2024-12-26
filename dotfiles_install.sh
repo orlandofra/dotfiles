@@ -68,7 +68,7 @@ TEMP_DIR=$(mktemp -d)
 
 
 pushd $TEMP_DIR
-	git clone --recurse-submodules git@github.com:orlandofra/dotfiles.git || \
+	git clone --recurse-submodules https://github.com/orlandofra/dotfiles.git || \
 		{ echo "git error"; exit 1; }
 
 popd
