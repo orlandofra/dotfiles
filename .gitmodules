@@ -1,3 +1,5 @@
 [submodule ".vim/pack/plugins/start/vimwiki"]
 	path = .vim/pack/plugins/start/vimwiki
-	url = https://github.com/vimwiki/vimwiki.git
+	url = https://github.com/orlandofra/vimwiki.git
+	branch = dev
+
