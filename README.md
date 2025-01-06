@@ -13,8 +13,3 @@ dir...)
 ```sh
 	./dotfiles_install
 ```
-
-You can execute the install script from my server
-```sh
-	curl -sSL https://orgiesataniche.com/dotfiles_install.sh | bash
-```
