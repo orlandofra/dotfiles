@@ -27,6 +27,14 @@ confirm() {
 	fi
 }
 
+
+install_scripts(){
+	confirm "Installare il gli scripts?? in ${HOME}?" || continue
+
+	mkdir -p $HOME/.local/Scripts
+	cp -r $TEMP_DIR/dotfiles/Scripts $HOME/.local/Scripts
+}
+
 DOTFILES=(
 	".bash_aliases"
 	".bash_funcs"
@@ -91,6 +99,8 @@ do
 	confirm "eliminare backup della vecchia ${dir} in $HOME/${dir}.${suffix}?" && \
 		rm -rf $HOME/${dir}.${suffix}
 done
+
+install_scripts
 
 rm -rf $TEMP_DIR
 echo -e "\033[0;32m" # green

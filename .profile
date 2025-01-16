@@ -28,3 +28,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 #synclient TouchpadOff=1
+if [ -d "$HOME/.local/Scripts" ] ; then
+    PATH="$HOME/.local/Scripts:$PATH"
+fi
