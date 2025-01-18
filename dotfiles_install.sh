@@ -47,6 +47,7 @@ DOTFILES=(
 
 DOTDIRS=(
 	".vim"
+	".imapfilter"
 )
 
 PACKAGES=(
